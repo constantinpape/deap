@@ -1,7 +1,7 @@
 # Dense Attentive Probing
 
 
-[[TMLR Paper](https://openreview.net/forum?id=neMAx4uBlh)] [[Project page](https://eckerlab/projects/deap)]
+[[TMLR Paper](https://openreview.net/forum?id=neMAx4uBlh)] [[Project page](https://eckerlab.org/projects/deap)]
 
 In this repository we provide the source code of dense attentive probing.
 
