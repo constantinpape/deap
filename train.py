@@ -35,7 +35,7 @@ def train(cfg, device='cuda'):
             model.train()
 
             opt.zero_grad()
-            
+
             outputs = model(sample)
             loss, _ = task.loss_function(outputs, sample)
 
@@ -46,10 +46,16 @@ def train(cfg, device='cuda'):
                 continue_training = False
                 break
 
-            iteration += 1   
+            iteration += 1
 
-    torch.save({k:p for k,p in model.state_dict().items() if p.requires_grad}, cfg['name'] + '-weights.pth')
-
+    torch.save(
+        {
+            name: p.detach().cpu()
+            for name, p in model.named_parameters()
+            if p.requires_grad
+        },
+        cfg['name'] + '-weights.pth'
+    )
 
 def evaluate(cfg, weights, device='cuda'):
 
